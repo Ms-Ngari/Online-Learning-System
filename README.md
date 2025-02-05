@@ -57,16 +57,6 @@ The Online Learning System is a robust, feature-rich platform built using Django
 - Real-time communication using Redis channel layers.
 - WebSocket client implementation.
 
-### Deployment and Advanced Features (In Progress)
-- Multi-environment configuration for Django settings.
-- Docker Compose setup for multiple services.
-- PostgreSQL and Redis integration via Docker Compose.
-- Web server setup with uWSGI and NGINX.
-- Static asset serving through NGINX.
-- Secure connections with TLS/SSL.
-- Daphne ASGI server integration.
-- Custom middleware and management commands.
-
 ## Installation
 
 ### Prerequisites
