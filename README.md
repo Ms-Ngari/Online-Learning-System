@@ -1,123 +1,71 @@
-# Online Learning System - Django Based
+# Online Chess Game
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Running the Project](#running-the-project)
-- [API Documentation](#api-documentation)
-- [Caching](#caching)
-- [Real-Time Features](#real-time-features)
-- [Development Roadmap](#development-roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-The Online Learning System is a robust, feature-rich platform built using Django. It provides a comprehensive environment for instructors to manage courses and students to enroll and interact with diverse educational content. The system incorporates essential content management features, authentication mechanisms, real-time updates, and API endpoints for integration.
+## Overview
+This is a real-time, multiplayer online chess game that allows players to engage in live matches by creating or joining game rooms. It offers seamless gameplay with synchronized moves across players.
 
 ## Features
+- **Create Game Rooms:** Start a new game by generating a unique Room ID.
+- **Join Game Rooms:** Enter a Room ID to join an existing game.
+- **Live Multiplayer Chess:** Play live matches with real-time move synchronization.
+- **Responsive Interface:** Intuitive chessboard layout for smooth user experience.
 
-### Core CMS Functionality
-- Create and manage course models.
-- Support for polymorphic content using model inheritance.
-- Custom model fields for flexible data handling.
-- Ordering capabilities for course contents and modules.
-- Authentication views for the CMS.
+## Technologies Used
 
-### Content Management
-- Class-based views and mixins for CMS operations.
-- Formsets and model formsets for editing course modules and contents.
-- Drag-and-drop functionality for reordering modules and contents.
-- Group and permission management for access control.
+### Frontend
+- **React:** User interface development.
+- **React-Chessboard:** For rendering the interactive chessboard.
+- **Socket.IO:** Real-time communication between players.
 
-### Student and Public Views
-- Public views for course information display.
-- Student registration and course enrollment.
-- Diverse content rendering for course modules.
-
-### Caching
-- Installation and configuration of Memcached.
-- Content caching using Django’s cache framework.
-- Support for Memcached and Redis backends.
-- Redis server monitoring in Django Admin.
-
-### RESTful API Development
-- Installation and configuration of Django REST Framework (DRF).
-- Serializers and nested serializers for model data.
-- Custom API views and API authentication.
-- Permissions and custom permission classes.
-- Implementation of ViewSets and routers.
-- API consumption using the Requests library.
-
-### Real-Time Features
-- ASGI support for asynchronous operations.
-- WebSocket integration with Django Channels.
-- Fully asynchronous WebSocket consumer.
-- Real-time communication using Redis channel layers.
-- WebSocket client implementation.
+### Backend
+- **Node.js:** Server environment.
+- **Express.js:** Web application framework.
+- **Socket.IO:** WebSocket connections for real-time updates.
+- **Chess.js:** Chess game logic and validation.
 
 ## Installation
 
-### Prerequisites
-- Python 3.x
-- PostgreSQL
-- Redis
-- Docker & Docker Compose
-- Node.js (for WebSocket client integration)
-
-### Steps
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd <project-directory>
-   ```
-2. Create a virtual environment:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Apply migrations:
-   ```bash
-   python manage.py migrate
-   ```
-5. Load initial data (fixtures):
-   ```bash
-   python manage.py loaddata <fixture-file>
-   ```
-6. Run the development server:
-   ```bash
-   python manage.py runserver
-   ```
-
-## Configuration
-- Rename `.env.example` to `.env` and update environment variables.
-- Set up Redis and PostgreSQL configurations in `settings.py`.
-- Configure caching backend options.
-
-## Running the Project
-To start the application:
+### Clone the Repository
+If you haven't done so already, clone the repository:
 ```bash
-python manage.py runserver
+git clone https://github.com/Ms-Ngari/Online-Chess-Game.git
 ```
 
-To use Docker Compose:
+### Navigate to the Project Directory
 ```bash
-docker-compose up --build
+cd Online-Chess-Game
 ```
 
-## Contributing
-Contributions are welcome! Please follow these steps:
-1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature-name`
-3. Commit your changes: `git commit -m "Add feature"`
-4. Push to the branch: `git push origin feature-name`
-5. Open a pull request.
+### Install Dependencies
+For both frontend and backend:
+
+#### Frontend
+```bash
+cd frontend
+npm install
+```
+
+#### Backend
+```bash
+cd ../backend
+npm install
+```
+
+## Running the Application
+1. **Start the Backend Server:**
+   ```bash
+   cd backend
+   npm start
+   ```
+
+2. **Start the Frontend:**
+   ```bash
+   cd ../frontend
+   npm start
+   ```
+
+3. **Access the Game:**
+   Open your browser and navigate to `http://localhost:3000`.
+
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
+This project is licensed under the [MIT License](LICENSE).
