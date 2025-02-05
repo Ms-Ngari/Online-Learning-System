@@ -1,119 +1,134 @@
-# E-Learning Platform
-An e-learning platform with its own content management system (CMS).
+# Online Learning System - Django Based
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running the Project](#running-the-project)
+- [API Documentation](#api-documentation)
+- [Caching](#caching)
+- [Real-Time Features](#real-time-features)
+- [Development Roadmap](#development-roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
+The Online Learning System is a robust, feature-rich platform built using Django. It provides a comprehensive environment for instructors to manage courses and students to enroll and interact with diverse educational content. The system incorporates essential content management features, authentication mechanisms, real-time updates, and API endpoints for integration.
 
 ## Features
-``` 
-• Create models for the CMS
-• Create fixtures for your models and apply them
-• Use model inheritance to create data models for polymorphic content
-• Create custom model fields
-• Order course contents and modules
-• Build authentication views for the CMS
 
-• Create a content management system using class-based views and mixins
-• Build formsets and model formsets to edit course modules and module contents
-• Manage groups and permissions
-• Implement a drag-and-drop functionality to reorder modules and content
+### Core CMS Functionality
+- Create and manage course models.
+- Support for polymorphic content using model inheritance.
+- Custom model fields for flexible data handling.
+- Ordering capabilities for course contents and modules.
+- Authentication views for the CMS.
 
-• Create public views for displaying course information
-• Build a student registration system•Manage student enrollment onto courses
-• Render diverse content for course modules
-• Install and configure Memcached
-• Cache content using the Django cache framework
-• Use the Memcached and Redis cache backends
-• Monitor your Redis server in the Django administration site
+### Content Management
+- Class-based views and mixins for CMS operations.
+- Formsets and model formsets for editing course modules and contents.
+- Drag-and-drop functionality for reordering modules and contents.
+- Group and permission management for access control.
 
-• Install Django REST framework
-• Create serializers for your models
-• Build a RESTful API
-• Create nested serializers
-• Build custom API views
-• Handle API authentication
-• Add permissions to API views
-• Create a custom permission
-• Implement ViewSets and routers
-• Use the Requests library to consume the API 
+### Student and Public Views
+- Public views for course information display.
+- Student registration and course enrollment.
+- Diverse content rendering for course modules.
 
-• Serve your Django project through Asynchronous Server Gateway Interface (ASGI)
-• Add Channels to your project
-• Build a WebSocket consumer and appropriate routing
-• Implement a WebSocket client
-• Enable a channel layer with Redis
-• Make your consumer fully asynchronous
+### Caching
+- Installation and configuration of Memcached.
+- Content caching using Django’s cache framework.
+- Support for Memcached and Redis backends.
+- Redis server monitoring in Django Admin.
 
-• Configuring Django settings for multiple environments...in progress
-• Using Docker Compose to run multiple services...in progress
-• Setting up a web server with uWSGI and Django...in progress
-• Serving PostgreSQL and Redis with Docker Compose...in progress
-• Using the Django system check framework...in progress
-• Serving NGINX with Docker...in progress
-• Serving static assets through NGINX...in progress
-• Securing connections through TLS/SSL...in progress
-• Using the Daphne ASGI server for Django Channels...in progress
-• Creating a custom Django middleware...in progress
-• Implementing custom Django management commands...in progress
+### RESTful API Development
+- Installation and configuration of Django REST Framework (DRF).
+- Serializers and nested serializers for model data.
+- Custom API views and API authentication.
+- Permissions and custom permission classes.
+- Implementation of ViewSets and routers.
+- API consumption using the Requests library.
+
+### Real-Time Features
+- ASGI support for asynchronous operations.
+- WebSocket integration with Django Channels.
+- Fully asynchronous WebSocket consumer.
+- Real-time communication using Redis channel layers.
+- WebSocket client implementation.
+
+### Deployment and Advanced Features (In Progress)
+- Multi-environment configuration for Django settings.
+- Docker Compose setup for multiple services.
+- PostgreSQL and Redis integration via Docker Compose.
+- Web server setup with uWSGI and NGINX.
+- Static asset serving through NGINX.
+- Secure connections with TLS/SSL.
+- Daphne ASGI server integration.
+- Custom middleware and management commands.
+
+## Installation
+
+### Prerequisites
+- Python 3.x
+- PostgreSQL
+- Redis
+- Docker & Docker Compose
+- Node.js (for WebSocket client integration)
+
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd <project-directory>
+   ```
+2. Create a virtual environment:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Apply migrations:
+   ```bash
+   python manage.py migrate
+   ```
+5. Load initial data (fixtures):
+   ```bash
+   python manage.py loaddata <fixture-file>
+   ```
+6. Run the development server:
+   ```bash
+   python manage.py runserver
+   ```
+
+## Configuration
+- Rename `.env.example` to `.env` and update environment variables.
+- Set up Redis and PostgreSQL configurations in `settings.py`.
+- Configure caching backend options.
+
+## Running the Project
+To start the application:
+```bash
+python manage.py runserver
 ```
 
-## Sample screenshot of working application#
-HomePage 
-![public view for course information](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/7563495d-7644-4322-80ce-f86272b81295)
-
-sample course overview page
-![public view for course information two](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/21e322f4-4837-499a-89ed-f402bf499255)
-
-My course page
-![my course page](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/c93ab197-0d6a-41b5-a9f2-fc926d9c85d8)
-
-Create new course page
-![create new course page](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/a4e94c60-e714-4ae3-9cd1-48e2f676bcfa)
-
-Edit course page
-![edit course page](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/62875595-edd1-4863-9b1b-7a2f91966920)
-
-Edit modules page
-![edit modules page](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/3a0f2f24-0a65-45b1-9ded-fa00a35c4a2d)
-
-Manage modules page
-![manage modules page](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/c26a4a92-ccf1-432e-b1e3-25acb917b14b)
-
-Manage modules with draggable feature enabled
-![draggable module using html5sortable library](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/b98a3a0e-515e-477e-990e-130431bce2c6)
-
-Manage module contents with draggable featured enabled
-![draggable module contents](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/9d80074b-792f-48d7-b064-71659800f46b)
-
-Enrolled course page of a student
-![enrolled course1](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/86145f34-08ad-4b09-9047-926a6078c203)
-
-![enrolled course 2](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/0c094b55-415f-45bd-b99c-555837820c3b)
-
-REST API VIEWS 
-Subject list view 
-![subject apiviews](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/9f757ccc-0542-4f22-875d-7c44f2bc698b)
-
-Subject detail view
-![subject detail view](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/ce192921-476f-4ef0-a832-a88677befd85)
-
-CHAT SERVER
-Inbuilt Chat-server to enable communication between students enrolled on the same course using Channels channel layer and Redis
-![context added to messages](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/a0ef337b-d239-4d85-b4b0-aa732456a2bf)
-
-DOCKER CONTAINERIZATION
-![running containers new](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/0fc1c10c-2e6a-4768-8ec5-a504b73fff73)
+To use Docker Compose:
+```bash
+docker-compose up --build
+```
 
 
-![homepage accessed from container](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/68180acb-bd42-42b8-aa79-0ec9ef79470b)
+## Contributing
+Contributions are welcome! Please follow these steps:
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m "Add feature"`
+4. Push to the branch: `git push origin feature-name`
+5. Open a pull request.
 
-NGINX TLS/SSL
-![NGINX using SSL_TLS](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/7b017e65-b7bd-4107-a9ac-e45da05feb6f)
-
-WEBSOCKET SECURED (wss://) test with daphne
-![websocket secured demo using daphne behind nginx](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/345c9a86-eb6d-4a8f-886a-a1adb9b37f8d)
-
-CUSTOM SUBDOMAIN CONFIGURATION IN SYSTEM
-![config test subdomain](https://github.com/natcobbinah/E-Learning-platform_Django/assets/10479361/6b7f5c6f-6c81-4024-9ba6-d0661a6075d9)
-
-
-
-
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
